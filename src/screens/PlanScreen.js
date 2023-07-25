@@ -9,6 +9,21 @@ const PlanScreen = () => {
 
     const [products, setProducts] = useState([]);
     const user = useSelector(state => state.user.user);
+    const [subscription, setSubscription] = useState(null);
+    useEffect(() => {
+      db.collection("customers").doc(user.uid).collection("subscriptions").get().then(querySnapshot => {
+        querySnapshot.forEach(async (subscription) => {
+            setSubscription({
+                role: subscription.data().role,
+                current_period_end: subscription.data().current_period_end.seconds,
+                current_period_start: subscription.data().current_period_start.seconds,
+            })
+        })
+      })
+    
+
+    }, [user.uid])
+    console.log(subscription);
 
     useEffect(()=>{
       db
@@ -62,16 +77,16 @@ const PlanScreen = () => {
   return (
   
   <div className="planScreen">
-  {Object.entries(products).map(([productID, productData]) => {
-
+  {Object.entries(products).map(([productId, productData]) => {
+const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role);
     return (
-        <div key={products.id} className="plansScreen_plan">
+        <div key={productId} className="plansScreen_plan">
             <div className="planScreen_info">
               <h5> {productData.name}</h5> 
               <h6>  {productData.description}</h6>
             </div>
 
-            <button onClick={ () => loadCheckout(productData.prices.priceId)}>Subscribe</button>
+            <button onClick={ () => !isCurrentPackage && loadCheckout(productData.prices.priceId)}>{isCurrentPackage ? `Current Package` : "Subscribe"}</button>
         </div>
     )
   })}
