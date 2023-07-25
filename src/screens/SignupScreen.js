@@ -1,39 +1,40 @@
 import React, { useRef } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
 import "./signupScreen.css";
 import { auth } from "../firebase";
 const SignupScreen = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
-  const register = async (e) => {
+  const register = (e) => {
     e.preventDefault();
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
+  auth.createUserWithEmailAndPassword(
         emailRef.current.value,
         passwordRef.current.value
-      );
-      console.log(user);
-    } catch (error) {
-      alert(error.message);
-    }
+      ).then((authUser) =>{
+        console.log(authUser);
+      }).catch((error)=>{
+        alert(error.message);
+      });
+
+
+
+ 
   };
-  const signIn = async (e) => {
+  const signIn = (e) => {
     e.preventDefault();
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
+
+      auth.signInWithEmailAndPassword(
         emailRef.current.value,
         passwordRef.current.value
-      );
-      console.log(user);
-    } catch (error) {
-      alert(error.message);
-    }
+      ).then((authUser) =>{
+        console.log(authUser);
+      }).catch((error) =>{
+        alert(error.message);
+      })
+
+
+
+
   };
 
   return (
