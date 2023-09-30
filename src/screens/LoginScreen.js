@@ -39,7 +39,7 @@ const LoginScreen = () => {
                   <input
                     type="email"
                     placeholder="Email 
-            Adress"
+            Address"
                   />
                   <button
                     className="loginScreen_getStarted"

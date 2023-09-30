@@ -77,10 +77,12 @@ const PlanScreen = () => {
   return (
   
   <div className="planScreen">
+    <br />
+    {subscription && <p>Renewal date: {new Date(subscription?.current_period_end * 1000).toLocaleDateString()}</p>}
   {Object.entries(products).map(([productId, productData]) => {
 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role);
     return (
-        <div key={productId} className="plansScreen_plan">
+        <div key={productId} className = {`${ isCurrentPackage && "plansScreen_plan--disabled" } plansScreen_plan`}>
             <div className="planScreen_info">
               <h5> {productData.name}</h5> 
               <h6>  {productData.description}</h6>

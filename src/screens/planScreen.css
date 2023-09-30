@@ -18,3 +18,8 @@
     border: none;
     cursor: pointer;
 }
+
+
+.plansScreen_plan--disabled > button {
+    background-color: rgb(138, 135, 169);
+}
