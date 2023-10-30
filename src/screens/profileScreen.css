@@ -63,3 +63,30 @@
     font-weight: 600;
   }
   
+  @media (max-width:800px){
+
+    .profileScreen_body > h1 {
+      font-size: 40px;
+      font-weight: 400;
+      border-bottom: 1px solid #282828;
+      margin-bottom: 20px;
+    }
+
+    .profileScreen_body {
+      display: flex;
+      flex-direction: column;
+      padding-top: 100px;
+      padding-right: 70px;
+    }
+
+    .Plans_details{
+      padding: 5px;
+    }
+
+ 
+
+  }
+  
+
+    
+  

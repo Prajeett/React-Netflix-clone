@@ -99,3 +99,27 @@ margin: 20px;
 
 }
 
+@media (max-width:800px){
+  .loginScreen_getStarted
+
+  
+  {
+    padding: 8px 1px 10px 1px;
+  font-size: 15px;
+
+  
+  }
+  .loginScreen_input > form > input{
+    padding: 10px 50px 10px 50px;
+    outline-width: 0;
+    height: 20px;
+    width: 40%;
+    border: none;
+    max-width: 600px;
+    margin-right:5px
+}
+
+
+
+}
+
