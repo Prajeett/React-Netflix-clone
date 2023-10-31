@@ -22,7 +22,6 @@ const ProfileScreen = () => {
             <div className="profileScreen_plans">
               <h3>Plans</h3>
 
-      
               <PlanScreen />
 
               <button
@@ -33,7 +32,6 @@ const ProfileScreen = () => {
               >
                 Sign Out
               </button>
-
             </div>
           </div>
         </div>

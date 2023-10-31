@@ -7,18 +7,20 @@ const Banner = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
- const fetchData = async () => {
+    const fetchData = async () => {
       const request = await axios.get(requests.fetchNetflixOriginals);
       console.log(request);
-      setMovie(request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]);
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
       return request;
-      
-    }
+    };
     fetchData();
   }, []);
 
   console.log(movie);
-
 
   const truncate = (string, n) => {
     return string.length > n ? string.substr(0, n - 1) + "......" : string;
@@ -34,7 +36,7 @@ const Banner = () => {
       }}
     >
       <div className="banner_contents">
-        <h1 className="banner_title">{movie?.title  || movie?.original_name}</h1>
+        <h1 className="banner_title">{movie?.title || movie?.original_name}</h1>
 
         <div className="banner_buttons">
           <button className="banner_button">Play</button>
@@ -42,8 +44,7 @@ const Banner = () => {
         </div>
 
         <h1 className="banner_description">
-          {truncate(`${movie?.overview}`,165
-          )}{" "}
+          {truncate(`${movie?.overview}`, 165)}{" "}
         </h1>
       </div>
 

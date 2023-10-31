@@ -23,3 +23,14 @@
 .plansScreen_plan--disabled > button {
     background-color: rgb(138, 135, 169);
 }
+
+
+@media (max-width:800px){
+    .planScreen_info{
+        margin-right: 50px;
+        
+
+  }
+
+
+}

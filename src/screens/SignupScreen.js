@@ -20,7 +20,6 @@ const SignupScreen = () => {
       });
   };
 
-
   return (
     <div className="signupScreen">
       <form>
@@ -33,10 +32,7 @@ const SignupScreen = () => {
 
         <h4>
           {" "}
-          <span className="signupScreen_gray">New to Netflix? </span>{" "}
-          <span className="signupScreen_link" onClick={register}>
-            Sign Up now.
-          </span>{" "}
+          <span className="signupScreen_gray">Sign Up to Continue </span>{" "}
         </h4>
       </form>
     </div>

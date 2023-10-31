@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 import SignupScreen from "./SignupScreen";
 
 const SigninScreen = () => {
-const [SwitchPage, setSwitchPage] = useState(false)
+  const [SwitchPage, setSwitchPage] = useState(false);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -26,38 +26,35 @@ const [SwitchPage, setSwitchPage] = useState(false)
 
   return (
     <>
-          {SwitchPage ? (
+      {SwitchPage ? (
         <SignupScreen />
       ) : (
-    <div className="signupScreen">
+        <div className="signupScreen">
+          <form>
+            <h1> Sign In</h1>
+            <input ref={emailRef} type="Email" placeholder="Email" />
+            <input ref={passwordRef} type="Password" placeholder="Password" />
+            <button
+              type="Submit"
+              onClick={signIn}
+              className="signupScreen_link"
+            >
+              Sign In
+            </button>
 
-  
-        <form>
-          <h1> Sign In</h1>
-          <input ref={emailRef} type="Email" placeholder="Email" />
-          <input ref={passwordRef} type="Password" placeholder="Password" />
-          <button type="Submit" onClick={signIn} className="signupScreen_link">
-            Sign In
-          </button>
-          <button
-            type="Submit"
-            className="signupScreen_link"
-            onClick={()=> setSwitchPage(true)}
-          >
-            Sign Up
-          </button>
-
-          <h4>
-            {" "}
-            <span className="signupScreen_gray">New to Netflix? </span>{" "}
-            <span className="signupScreen_link" onClick={()=> setSwitchPage(true)}>
-              Sign Up now.
-            </span>{" "}
-          </h4>
-        </form>
- 
-      
-    </div>)}
+            <h4>
+              {" "}
+              <span className="signupScreen_gray">New to Netflix? </span>{" "}
+              <span
+                className="signupScreen_link"
+                onClick={() => setSwitchPage(true)}
+              >
+                Sign Up now.
+              </span>{" "}
+            </h4>
+          </form>
+        </div>
+      )}
     </>
   );
 };
