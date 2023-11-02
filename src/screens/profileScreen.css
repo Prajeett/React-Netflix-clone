@@ -22,6 +22,7 @@
 
 .profileScreen_info{
   display: flex;
+  justify-content: center;
 
 }
 
@@ -81,6 +82,10 @@
 
     .Plans_details{
       padding: 5px;
+    }
+    .profileScreen_info > img {
+      height: 60px;
+      margin-left: 55px;
     }
 
 
